@@ -1,4 +1,5 @@
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 import { useNavigate } from "react-router-dom";
 import api from "../api/axios";
@@ -24,13 +25,13 @@ const Dashboard = () => {
 
       navigate(`/meeting/${response.data.meetingId}`);
     } catch (error) {
-      alert(error.response?.data?.message || "Failed to create meeting.");
+      toast.error(error.response?.data?.message || "Failed to create meeting.");
     }
   };
 
   const handleJoinMeeting = async () => {
     if (!meetingId.trim()) {
-      return alert("Please enter a meeting ID.");
+      return toast.error("Please enter a meeting ID.");
     }
 
     try {
@@ -44,7 +45,7 @@ const Dashboard = () => {
 
       navigate(`/meeting/${meetingId}`);
     } catch (error) {
-      alert(error.response?.data?.message || "Meeting not found.");
+      toast.error(error.response?.data?.message || "Meeting not found.");
     }
   };
 

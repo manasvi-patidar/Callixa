@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 import AuthForm from "../components/AuthForm";
 import api from "../api/axios";
@@ -30,7 +31,7 @@ const Register = () => {
 
       navigate("/");
     } catch (error) {
-      alert(error.response?.data?.message || "Registration failed");
+      toast.error(error.response?.data?.message || "Registration failed");
     }
   };
 

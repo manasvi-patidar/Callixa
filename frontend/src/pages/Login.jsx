@@ -2,6 +2,7 @@ import { useState } from "react";
 import AuthForm from "../components/AuthForm";
 import { useNavigate } from "react-router-dom";
 import api from "../api/axios";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -29,7 +30,7 @@ const Login = () => {
 
       navigate("/dashboard");
     } catch (error) {
-      alert(error.response?.data?.message || "Login failed");
+      toast.error(error.response?.data?.message || "Login failed");
     }
   };
 

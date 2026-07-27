@@ -16,6 +16,8 @@ import ChatSection from "../components/ChatSection";
 import useCamera from "../hooks/useCamera";
 import useChat from "../hooks/useChat";
 
+import toast from "react-hot-toast";
+
 const Meeting = () => {
   const { meetingId } = useParams();
   const navigate = useNavigate();
@@ -50,7 +52,7 @@ const Meeting = () => {
   const handleCopyMeetingId = async () => {
     try {
       await navigator.clipboard.writeText(meetingId);
-      alert("Meeting ID copied.");
+      toast.success("Meeting ID copied.");
     } catch (error) {
       console.error(error);
     }
