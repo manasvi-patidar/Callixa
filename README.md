@@ -14,6 +14,7 @@ Callixa is a full-stack video conferencing web application that enables users to
 - Create & Join Meetings
 - Real-time Video Calling (WebRTC)
 - Real-time Chat (Socket.IO)
+- Real-time Toast Notifications
 - Mute / Unmute Microphone
 - Camera On / Off
 - Copy Meeting ID
